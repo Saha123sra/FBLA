@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Link to Bootstrap CSS for basic styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style for the entire page background and layout */
+        body {
+            font-family: Arial, sans-serif; /* Use a clean and readable font */
+            background-color: #F1F1F1; /* Light gray background for better contrast */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Center the login box */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Make the height cover the full viewport */
+        }
+
+        /* Style for the login container box */
+        .login-container {
+            background: #fff; /* White background for the box */
+            padding: 30px; /* Add some spacing inside the box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+            width: 100%;
+            max-width: 400px; /* Limit the width to avoid the box being too large */
+        }
+
+        /* Style for the heading inside the login box */
+        .login-container h2 {
+            color: #006F63; /* Dark green color for the heading */
+            text-align: center; /* Center the text */
+            margin-bottom: 20px; /* Add space below the heading */
+        }
+
+        /* Style for form labels */
+        .form-group label {
+            font-weight: bold; /* Make the labels bold for better visibility */
+        }
+
+        /* Style for the submit button */
+        .submit-btn {
+            background-color: #006F63; /* Dark green background */
+            color: #fff; /* White text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Show a pointer cursor when hovering */
+            transition: background-color 0.3s; /* Smooth transition effect */
+        }
+
+        /* Change background color on hover for the button */
+        .submit-btn:hover {
+            background-color: #005847; /* Slightly darker green when hovering */
+        }
+
+        /* Style for the "Create account" text */
+        .create-account {
+            text-align: center; /* Center the text */
+            margin-top: 15px; /* Add space above the text */
+        }
+
+        /* Style for the link in "Create account" text */
+        .create-account a {
+            color: #006F63; /* Match the green theme */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Change link color on hover */
+        .create-account a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for the login form -->
+    <div class="login-container">
+        <!-- Heading for the login page -->
+        <h2>Login</h2>
+        <!-- Login form starts here -->
+        <form>
+            <!-- Username input field -->
+            <div class="form-group">
+                <label for="username">Username</label> <!-- Label to indicate this field is for username -->
+                <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            <!-- Password input field -->
+            <div class="form-group">
+                <label for="password">Password</label> <!-- Label to indicate this field is for password -->
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <!-- Submit button for the form -->
+            <button type="submit" class="btn btn-block submit-btn">Submit</button>
+        </form>
+        <!-- Text below the button to create an account -->
+        <div class="create-account">
+            Don't have an account? 
+            <!-- Link to redirect users to the account creation page -->
+            <a href="create_account.html">Create account</a>
+        </div>
+    </div>
+</body>
+</html>
