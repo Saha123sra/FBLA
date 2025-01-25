@@ -1,0 +1,6 @@
+<div *ngIf="spendingPattern">
+    <h2>Spending Pattern</h2>
+    <p>Weekly Spending: {{ spendingPattern.weeklySpending | currency }}</p>
+    <p>Monthly Spending: {{ spendingPattern.monthlySpending | currency }}</p>
+    <p>Total Current Balance: {{ spendingPattern.totalCurrentBalance | currency }}</p>
+  </div>

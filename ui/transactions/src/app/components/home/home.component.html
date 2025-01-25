@@ -1,0 +1,33 @@
+<div class="home-container">
+    <h1>Welcome to Transaction Manager</h1>
+    
+    <div *ngIf="isLoggedIn">
+      <h2>Hello, {{ username }}!</h2>
+      <p>You're logged in. Start managing your transactions now.</p>
+      <div>
+        <input type="hidden" name="username" ngModel [value]="username">
+        <input type="hidden" name="userId" ngModel [value]="userId">
+      </div>
+      <!-- <button routerLink="/transaction-list">View Transactions</button> -->
+      <button (click)="viewTransactions()">View Transactions</button>
+      <br/>
+      <button (click)="spendingPattern()">Spending Pattern</button>
+    </div>
+  
+    <div *ngIf="!isLoggedIn">
+      <p>Please log in to manage your transactions.</p>
+      <button routerLink="/login">Login</button>
+      <button routerLink="/signup">Sign Up</button>
+    </div>
+  
+    <section class="features">
+      <h3>Our Features</h3>
+      <ul>
+        <li>Easy transaction tracking</li>
+        <li>Categorize your expenses</li>
+        <li>Generate reports</li>
+        <li>Set budgets and goals</li>
+      </ul>
+    </section>
+  </div>
+  
