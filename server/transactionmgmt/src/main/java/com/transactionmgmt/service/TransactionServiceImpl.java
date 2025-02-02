@@ -66,4 +66,15 @@ public class TransactionServiceImpl implements TransactionService {
         );
     }
     
+    public List<Transaction> filterTransactions(Long userId, LocalDate startDate, LocalDate endDate, String category) {
+        if (startDate == null) startDate = LocalDate.MIN;
+        if (endDate == null) endDate = LocalDate.MAX;
+        
+        if (category != null && !category.isEmpty()) {
+            return transactionRepository.findByUserIdAndDateBetweenAndCategory(userId, startDate, endDate, category);
+        } else {
+            return transactionRepository.findByUserIdAndDateBetween(userId, startDate, endDate);
+        }
+    }
+    
 }

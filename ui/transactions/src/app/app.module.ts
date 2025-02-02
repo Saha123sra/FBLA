@@ -15,6 +15,8 @@ import { AuthComponent } from './components/auth/auth.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SpendingPatternComponent } from './components/spending-pattern/spending-pattern.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SpendingPatternComponent } from './components/spending-pattern/spending
     AuthComponent,
     HeaderComponent,
     HomeComponent,
-    SpendingPatternComponent
+    SpendingPatternComponent,
+    FooterComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,

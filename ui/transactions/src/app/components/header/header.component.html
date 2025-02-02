@@ -5,9 +5,12 @@
       </div>
       <ul>
         <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/transaction-list">View Transactions</a></li>
+        <li><a routerLink="/spending-pattern">Spending Pattern</a></li>
         <li><a routerLink="/login" *ngIf="!isLoggedIn">Login</a></li>
         <li><a (click)="logout()" *ngIf="isLoggedIn">Logout</a></li>
       </ul>
     </nav>
   </header>
-  
+
+    

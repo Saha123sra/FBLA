@@ -1,6 +1,34 @@
-<div *ngIf="spendingPattern">
-    <h2>Spending Pattern</h2>
-    <p>Weekly Spending: {{ spendingPattern.weeklySpending | currency }}</p>
-    <p>Monthly Spending: {{ spendingPattern.monthlySpending | currency }}</p>
-    <p>Total Current Balance: {{ spendingPattern.totalCurrentBalance | currency }}</p>
+
+  <div class="spending-pattern-container">
+    <h2 class="title">Spending Pattern</h2>
+    <div class="pattern-grid">
+      <div class="pattern-card weekly">
+        <div class="card-icon">
+          <i class="fas fa-calendar-week"></i>
+        </div>
+        <div class="card-content">
+          <h3>Weekly Spending</h3>
+          <p class="amount">{{ spendingPattern.weeklySpending | currency }}</p>
+        </div>
+      </div>
+      <div class="pattern-card monthly">
+        <div class="card-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="card-content">
+          <h3>Monthly Spending</h3>
+          <p class="amount">{{ spendingPattern.monthlySpending | currency }}</p>
+        </div>
+      </div>
+      <div class="pattern-card balance">
+        <div class="card-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <div class="card-content">
+          <h3>Current Balance</h3>
+          <p class="amount">{{ spendingPattern.totalCurrentBalance | currency }}</p>
+        </div>
+      </div>
+    </div>
   </div>
+  

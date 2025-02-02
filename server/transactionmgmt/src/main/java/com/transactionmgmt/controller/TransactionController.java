@@ -41,7 +41,7 @@ public class TransactionController {
 		transaction.setDescription(tRequest.getDescription());
 		transaction.setCategory(tRequest.getCategory());
 		transaction.setDate(tRequest.getDate());
-		transaction.setType("INCOME");
+		transaction.setType("DEDUCTIONS");
 		transaction.setUser(user);
 		
 		return ResponseEntity.ok(transactionService.addTransaction(transaction));
@@ -80,13 +80,28 @@ public class TransactionController {
 		transactionService.deleteTransaction(id); 
 	}
 	
-	@GetMapping("/filter")
-    public ResponseEntity<List<Transaction>> filterTransactions(
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
-            @RequestParam(required = false) String category) {
-        List<Transaction> transactions = transactionService.filterTransactions(startDate, endDate, category);
-        return ResponseEntity.ok(transactions);
-    }
-	
+	/*
+	 * @GetMapping("/filter") public ResponseEntity<List<Transaction>>
+	 * filterTransactions(
+	 * 
+	 * @RequestParam(required = false) @DateTimeFormat(iso =
+	 * DateTimeFormat.ISO.DATE) LocalDate startDate,
+	 * 
+	 * @RequestParam(required = false) @DateTimeFormat(iso =
+	 * DateTimeFormat.ISO.DATE) LocalDate endDate,
+	 * 
+	 * @RequestParam(required = false) String category) { List<Transaction>
+	 * transactions = transactionService.filterTransactions(startDate, endDate,
+	 * category); return ResponseEntity.ok(transactions); }
+	 */
+	 @GetMapping("/filter")
+	    public ResponseEntity<List<Transaction>> filterTransactions(
+	            @RequestParam Long userId,
+	            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+	            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
+	            @RequestParam(required = false) String category) {
+	        List<Transaction> transactions = transactionService.filterTransactions(userId, startDate, endDate, category);
+	        return ResponseEntity.ok(transactions);
+	    }
+	 
 }

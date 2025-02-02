@@ -10,7 +10,11 @@ export class SpendingPatternService {
 
   constructor(private http: HttpClient) {}
 
-  getSpendingPattern(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  // getSpendingPattern(): Observable<any> {
+  //   return this.http.get(this.apiUrl);
+  // }
+  
+  getSpendingPattern(userId: BigInt): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${userId}`);
   }
 }

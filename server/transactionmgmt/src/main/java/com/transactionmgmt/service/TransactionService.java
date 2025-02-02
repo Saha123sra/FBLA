@@ -21,4 +21,6 @@ public interface TransactionService {
 	public void deleteTransaction(Long id);
 	
 	public List<Transaction> filterTransactions(LocalDate startDate, LocalDate endDate, String category); 
+	
+	public List<Transaction> filterTransactions(Long userId, LocalDate startDate, LocalDate endDate, String category); 
 }

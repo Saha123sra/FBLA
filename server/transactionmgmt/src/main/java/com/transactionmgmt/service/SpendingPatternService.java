@@ -9,6 +9,7 @@ import com.transactionmgmt.model.SpendingPattern;
 public interface SpendingPatternService {
 
 	public SpendingPattern getSpendingPattern() ;
+	public SpendingPattern getSpendingPattern(Long userId);
     public BigDecimal calculateTotalSpending(List<Transaction> transactions) ; 
     public BigDecimal calculateTotalBalance(List<Transaction> transactions);
 }

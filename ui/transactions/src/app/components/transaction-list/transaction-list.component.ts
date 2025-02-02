@@ -122,7 +122,14 @@ export class TransactionListComponent implements OnInit {
   }
 
   filterTransactions() {
-    this.transactionService.filterTransactions(this.startDate, this.endDate, this.selectedCategory)
+    const uId = this.authService.getCurrentUser().userId; 
+    
+    if (uId === undefined) { 
+      console.error('User ID is undefined'); 
+      return; // Optionally handle this case as needed 
+    }
+    this.userId = uId;
+    this.transactionService.filterTransactions(this.userId, this.startDate, this.endDate, this.selectedCategory)
       .subscribe(
         (data) => {
           this.transactions = data;

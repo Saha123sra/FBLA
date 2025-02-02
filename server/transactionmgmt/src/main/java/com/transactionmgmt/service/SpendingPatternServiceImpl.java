@@ -32,15 +32,36 @@ public class SpendingPatternServiceImpl implements SpendingPatternService {
         return new SpendingPattern(weeklySpending, monthlySpending, totalCurrentBalance);
     }
 
+	
     public BigDecimal calculateTotalSpending(List<Transaction> transactions) {
         return transactions.stream()
+                .filter(transaction -> !transaction.getType().equals("INCOME"))
                 .map(Transaction::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
+    
     public BigDecimal calculateTotalBalance(List<Transaction> transactions) {
         return transactions.stream()
                 .map(transaction -> transaction.getType().equals("INCOME") ? transaction.getAmount() : transaction.getAmount().negate())
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+    
+    
+    public SpendingPattern getSpendingPattern(Long userId) {
+        LocalDate now = LocalDate.now();
+        LocalDate weekAgo = now.minusWeeks(1);
+        LocalDate monthAgo = now.minusMonths(1);
+
+        List<Transaction> weeklyTransactions = transactionRepository.findByUserIdAndDateBetween(userId, weekAgo, now);
+        List<Transaction> monthlyTransactions = transactionRepository.findByUserIdAndDateBetween(userId, monthAgo, now);
+        List<Transaction> allTransactions = transactionRepository.findByUserId(userId);
+
+        BigDecimal weeklySpending = calculateTotalSpending(weeklyTransactions);
+        BigDecimal monthlySpending = calculateTotalSpending(monthlyTransactions);
+        BigDecimal totalCurrentBalance = calculateTotalBalance(allTransactions);
+
+        return new SpendingPattern(weeklySpending, monthlySpending, totalCurrentBalance);
+    }
+
 }

@@ -40,22 +40,32 @@ export class TransactionService {
     return this.http.get<Transaction[]>(`${this.apiUrl}/search`, { params });  
     
   }
-  filterTransactions(startDate: string, endDate: string, category: string): Observable<Transaction[]> {
-    let params = new HttpParams();
+  // filterTransactions(startDate: string, endDate: string, category: string): Observable<Transaction[]> {
+  //   let params = new HttpParams();
     
-    if (startDate) {
-      params = params.set('startDate', startDate);
-    }
+  //   if (startDate) {
+  //     params = params.set('startDate', startDate);
+  //   }
     
-    if (endDate) {
-      params = params.set('endDate', endDate);
-    }
+  //   if (endDate) {
+  //     params = params.set('endDate', endDate);
+  //   }
     
-    if (category) {
-      params = params.set('category', category);
-    }
+  //   if (category) {
+  //     params = params.set('category', category);
+  //   }
 
-    return this.http.get<Transaction[]>(`${this.apiUrl}/filter`, { params });
+  //   return this.http.get<Transaction[]>(`${this.apiUrl}/filter`, { params });
+  // }
+
+  filterTransactions(userId: BigInt, startDate?: string, endDate?: string, category?: string): Observable<any[]> {
+    let params = new HttpParams().set('userId', userId.toString());
+    
+    if (startDate) params = params.set('startDate', startDate);
+    if (endDate) params = params.set('endDate', endDate);
+    if (category) params = params.set('category', category);
+
+    return this.http.get<any[]>(`${this.apiUrl}/filter`, { params });
   }
 
 }
