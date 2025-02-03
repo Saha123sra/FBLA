@@ -13,18 +13,20 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // Submit form for login
   onSubmit() {
+    // Call AuthService's login method with username and password
     this.authService.login(this.username, this.password).subscribe(
       response => {  
-          console.log(response);
-        
-        // Handle successful login
+        // Log response on successful login
+        console.log(response);
         console.log('Login successful', response);
         
+        // Navigate to transaction list page on successful login
         this.router.navigate(['/transaction-list']);
       },
       error => {
-        // Handle login error
+        // Log error on failed login
         console.error('Login failed', error);
       }
     );

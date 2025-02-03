@@ -27,6 +27,16 @@
         </select>
         
       </div>
+      <div class="form-group">
+        <label for="date">Transaction Type</label>
+        <select id="type" [(ngModel)]="transaction.type" name="type" required>
+          <option value="">Select Type</option>
+          <option *ngFor="let type of types" [value]="type">
+            {{type}}
+          </option>
+        </select>
+        
+      </div>
       <button type="submit">{{ isEditing ? 'Update' : 'Add' }} Transaction</button>
     </form>
   </div>

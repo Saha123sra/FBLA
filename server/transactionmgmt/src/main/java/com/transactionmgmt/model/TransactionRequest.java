@@ -8,6 +8,7 @@ public class TransactionRequest {
 	    private String description;
 	    private BigDecimal amount;
 	    private String category;
+	    private String type;
 	    private LocalDate date;
 	    private Long userId;
 		public Long getId() {
@@ -35,6 +36,13 @@ public class TransactionRequest {
 		public void setCategory(String category) {
 			this.category = category;
 		}
+				
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
 		public LocalDate getDate() {
 			return date;
 		}
@@ -49,10 +57,10 @@ public class TransactionRequest {
 		}
 		@Override
 		public String toString() {
-			return "TransactionRequest [id=" + id + ", description=" + description + ", amount=" + amount + ", date="
-					+ date + ", userId=" + userId + "]";
+			return "TransactionRequest [id=" + id + ", description=" + description + ", amount=" + amount
+					+ ", category=" + category + ", type=" + type + ", date=" + date + ", userId=" + userId + "]";
 		}
-	    
+		
 	    
 
 }

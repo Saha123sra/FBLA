@@ -41,7 +41,7 @@ public class TransactionController {
 		transaction.setDescription(tRequest.getDescription());
 		transaction.setCategory(tRequest.getCategory());
 		transaction.setDate(tRequest.getDate());
-		transaction.setType("DEDUCTIONS");
+		transaction.setType(tRequest.getType());
 		transaction.setUser(user);
 		
 		return ResponseEntity.ok(transactionService.addTransaction(transaction));

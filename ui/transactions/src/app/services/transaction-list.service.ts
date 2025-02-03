@@ -9,6 +9,7 @@ export interface Transaction {
   amount: number;
   date: string;
   category: string;
+  type: string;
 }
 
 export interface TransactionListResponse {
@@ -32,7 +33,8 @@ export class TransactionListService {
     sortBy: string = 'date',
     sortOrder: 'asc' | 'desc' = 'desc',
     searchTerm: string = '',
-    category: string = ''
+    category: string = '',
+    type: string = ''
   ): Observable<TransactionListResponse> {
     let params = new HttpParams()
       .set('page', page.toString())

@@ -9,6 +9,7 @@ interface Transaction {
   amount: number;
   date: string;
   category: string;
+  type: string;
 }
 
 @Component({
@@ -25,6 +26,7 @@ export class TransactionListComponent implements OnInit {
   filteredTransactions: any[] = [];
   selectedCategory: string = '';
   categories: string[] = ['Utilities', 'Taxes', 'Personal'];
+  types: string[] = ['INCOME', 'DEDUCTIONS'];
 
   constructor(private transactionService: TransactionService, 
     private router: Router, 

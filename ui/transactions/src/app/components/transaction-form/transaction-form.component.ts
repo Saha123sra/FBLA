@@ -17,6 +17,7 @@ export class TransactionFormComponent implements OnInit {
   username: string = '';
   userId?: BigInt;
   categories: string[] = ['Utilities', 'Taxes', 'Personal'];
+  types: string[] = ['INCOME', 'DEDUCTINS'];
   
   transaction: any = {
     description: '',
@@ -24,7 +25,8 @@ export class TransactionFormComponent implements OnInit {
     category: '',
     date: new Date().toISOString().split('T')[0],
     username: this.authService.getUsername(),
-    userId: this.authService.getCurrentUser().userId
+    userId: this.authService.getCurrentUser().userId,
+    type: ''
   };
 
   constructor(
@@ -120,7 +122,8 @@ export class TransactionFormComponent implements OnInit {
       description: '',
       amount: 0,
       date: '',
-      category: ''
+      category: '',
+      type: ''
     };
   }
 

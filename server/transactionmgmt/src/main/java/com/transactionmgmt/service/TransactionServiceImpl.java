@@ -51,6 +51,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setAmount(update.getAmount());
         transaction.setDate(update.getDate());
         transaction.setCategory(update.getCategory());
+        transaction.setType(update.getType());
 
         return transactionRepository.save(transaction);
     }
